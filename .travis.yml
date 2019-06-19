@@ -23,7 +23,6 @@ stages:
   - coverage
 
 jobs:
-  fast_finish: true
   include:
 #    - stage: check
 #      language: php
@@ -106,20 +105,16 @@ jobs:
 #      env: WP_VERSION=trunk
 #      script: bash tests/bin/php/wp-test.sh
     - stage: test
-      allow_failures: true
       language: php
       php: '5.6'
-      env:
-        - WP_VERSION=4.9
-        - ALLOW_FAILURES=1
+      env: WP_VERSION=4.9
       script: bash tests/bin/php/wp-test.sh
     - stage: test
       language: php
-      allow_failures: true
       php: '5.3'
       env:
         - WP_VERSION=latest
-        - ALLOW_FAILURES=1
+        - IGNORE_PLATFORM_REQS=1
       dist: precise
       script: bash tests/bin/php/wp-test.sh
 
@@ -135,4 +130,5 @@ jobs:
 #      script: bash tests/bin/coverage.sh
 
   allow_failures:
-    - env: ALLOW_FAILURES=1
+    - env: WP_VERSION=4.9
+    - php: '5.3'
