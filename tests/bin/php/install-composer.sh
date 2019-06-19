@@ -5,4 +5,3 @@ if [[ ! -z "$IGNORE_PLATFORM_REQS" ]] ; then
 else
   composer install -n --working-dir=${TRAVIS_BUILD_DIR}
 fi
-
