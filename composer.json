@@ -1,0 +1,45 @@
+{
+  "name": "technote-space/test-travis",
+  "description": "Test plugin for Travis CI",
+  "type": "wordpress-plugin",
+  "license": "GPL-2.0+",
+  "authors": [
+    {
+      "name": "Technote",
+      "email": "technote.space@gmail.com",
+      "homepage": "https://technote.space"
+    }
+  ],
+  "require-dev": {
+    "squizlabs/php_codesniffer": "*",
+    "wp-coding-standards/wpcs": "*",
+    "phpmd/phpmd": "^2.6",
+    "phpcompatibility/phpcompatibility-wp": "*",
+    "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0",
+    "roave/security-advisories": "dev-master",
+    "php-coveralls/php-coveralls": "^2.1",
+    "phake/phake": "^3.1"
+  },
+  "require": {
+    "php": ">=5.6",
+    "wp-content-framework/core": "~0.0",
+    "wp-content-framework/update": "~0.0"
+  },
+  "scripts": {
+    "test": [
+      "composer phpcs && composer phpmd && composer phpunit"
+    ],
+    "phpunit": [
+      "phpunit"
+    ],
+    "phpcs": [
+      "vendor/bin/phpcs --standard=./phpcs.xml"
+    ],
+    "fix": [
+      "vendor/bin/phpcbf --standard=./phpcs.xml"
+    ],
+    "phpmd": [
+      "vendor/bin/phpmd ./src/,./configs/,./tests/ text phpmd.xml"
+    ]
+  }
+}
