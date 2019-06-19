@@ -22,7 +22,11 @@ stages:
   - test
   - report
 
+matrix:
+  fast_finish: true
+
 jobs:
+  fast_finish: true
   include:
     - stage: check
       language: php
@@ -105,9 +109,24 @@ jobs:
       env: WP_VERSION=trunk
       script: bash tests/bin/php/wp-test.sh
     - stage: test
+      allow_failures: true
       language: php
-      php: 'hhvm'
+      php: '5.6'
+      env: WP_VERSION=4.9
+      script: bash tests/bin/php/wp-test.sh
+    - stage: test
+      language: php
+      allow_failures: true
+      php: '5.3'
       env: WP_VERSION=latest
+      dist: precise
+      script: bash tests/bin/php/wp-test.sh
+    - stage: test
+      allow_failures: true
+      language: php
+      php: '5.2'
+      env: WP_VERSION=3.9
+      dist: precise
       script: bash tests/bin/php/wp-test.sh
 
     - stage: test
@@ -120,22 +139,3 @@ jobs:
       language: php
       php: '7.2'
       script: bash tests/bin/report.sh
-
-  allow_failures:
-    - stage: test
-      language: php
-      php: '5.6'
-      env: WP_VERSION=4.9
-      script: bash tests/bin/php/wp-test.sh
-    - stage: test
-      language: php
-      php: '5.3'
-      env: WP_VERSION=latest
-      dist: precise
-      script: bash tests/bin/php/wp-test.sh
-    - stage: test
-      language: php
-      php: '5.2'
-      env: WP_VERSION=3.9
-      dist: precise
-      script: bash tests/bin/php/wp-test.sh
