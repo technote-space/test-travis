@@ -20,6 +20,9 @@ Travis CI テスト用
 - test
   - PHP
     - PHPUnit
+      - PHP v5.6 - v7.2
+      - WordPress v5.0 - latest
+      - WordPress v3.9, v4.9 (allow_failures)
   - JavaScript
     - Jest
 
