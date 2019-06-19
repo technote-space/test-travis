@@ -28,11 +28,11 @@ jobs:
   include:
     - stage: check_wp
       language: php
-      php: '5.6'
+      php: '7.2'
       script: bash tests/bin/php/phpcs.sh
     - stage: check_wp
       language: php
-      php: '5.6'
+      php: '7.2'
       script: bash tests/bin/php/phpmd.sh
 
     - stage: check_js
@@ -132,5 +132,5 @@ jobs:
 
     - stage: report
       language: php
-      php: '5.6'
+      php: '7.2'
       script: bash tests/bin/report.sh
