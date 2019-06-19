@@ -18,7 +18,8 @@
     "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0",
     "roave/security-advisories": "dev-master",
     "php-coveralls/php-coveralls": "^2.1",
-    "phake/phake": "^3.1"
+    "phake/phake": "^2.3 || ^3.1",
+    "phpunit/phpunit": "^5.7 || ^7.5"
   },
   "require": {
     "php": ">=5.6",
@@ -30,7 +31,7 @@
       "composer phpcs && composer phpmd && composer phpunit"
     ],
     "phpunit": [
-      "phpunit"
+      "vendor/bin/phpunit"
     ],
     "phpcs": [
       "vendor/bin/phpcs --standard=./phpcs.xml"
