@@ -20,10 +20,7 @@ cache:
 stages:
   - check
   - test
-  - report
-
-matrix:
-  fast_finish: true
+  - coverage
 
 jobs:
   fast_finish: true
@@ -135,7 +132,7 @@ jobs:
       dist: trusty
       script: bash tests/bin/js/js-test.sh
 
-    - stage: report
-      language: php
-      php: '7.2'
-      script: bash tests/bin/report.sh
+#    - stage: coverage
+#      language: php
+#      php: '7.2'
+#      script: bash tests/bin/coverage.sh
