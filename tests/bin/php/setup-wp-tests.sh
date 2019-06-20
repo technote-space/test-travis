@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 
+set -ex
 if [[ -f ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/xdebug.ini ]]; then
-	phpenv config-rm xdebug.ini
+	if [[ -z "$COVERAGE_REPORT" ]] ; then
+		phpenv config-rm xdebug.ini
+	fi
 else
 	echo "xdebug.ini does not exist"
 fi

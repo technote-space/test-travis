@@ -41,6 +41,9 @@
     ],
     "phpmd": [
       "vendor/bin/phpmd ./src/,./configs/,./tests/ text phpmd.xml"
+    ],
+    "coveralls": [
+      "vendor/bin/php-coveralls -v"
     ]
   }
 }
