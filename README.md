@@ -1,5 +1,6 @@
 # Test Travis
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/dfbb354ea8214eb39691ca51cd8939f0)](https://app.codacy.com/app/technote-space/test-travis?utm_source=github.com&utm_medium=referral&utm_content=technote-space/test-travis&utm_campaign=Badge_Grade_Settings)
 [![License: GPL v2+](https://img.shields.io/badge/License-GPL%20v2%2B-blue.svg)](http://www.gnu.org/licenses/gpl-2.0.html)
 [![PHP: >=5.6](https://img.shields.io/badge/PHP-%3E%3D5.6-orange.svg)](http://php.net/)
 [![WordPress: >=5.0](https://img.shields.io/badge/WordPress-%3E%3D5.0-brightgreen.svg)](https://wordpress.org/)
