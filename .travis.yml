@@ -20,7 +20,6 @@ cache:
 stages:
   - check
   - test
-  - coverage
 
 matrix:
   fast_finish: true
@@ -43,11 +42,20 @@ jobs:
       script: bash tests/bin/js/js-lint.sh
 
 
-
     - stage: test
       language: php
       php: '7.3'
-      env: WP_VERSION=latest
+      env:
+        - WP_VERSION=latest
+        - COVERAGE_REPORT=1
+      script: bash tests/bin/php/wp-test.sh
+    - stage: test
+      language: php
+      php: '7.3'
+      env:
+        - WP_VERSION=latest
+        - WP_MULTISITE=1
+        - COVERAGE_REPORT=1
       script: bash tests/bin/php/wp-test.sh
     - stage: test
       language: php
@@ -76,7 +84,9 @@ jobs:
     - stage: test
       language: php
       php: '7.0'
-      env: WP_VERSION=latest
+      env:
+        - WP_VERSION=latest
+        - COVERAGE_REPORT=1
       script: bash tests/bin/php/wp-test.sh
     - stage: test
       language: php
@@ -96,6 +106,7 @@ jobs:
       env:
         - WP_VERSION=5.0
         - WP_MULTISITE=1
+        - COVERAGE_REPORT=1
       script: bash tests/bin/php/wp-test.sh
     - stage: test
       language: php
@@ -118,19 +129,7 @@ jobs:
       node_js: '10'
       dist: trusty
       script: bash tests/bin/js/js-test.sh
-
-
-
-    - stage: coverage
-      language: php
-      php: '7.3'
-      env:
-        - WP_VERSION=latest
-        - WP_MULTISITE=1
-        - COVERAGE_REPORT=1
-      script: bash tests/bin/php/wp-test.sh
-
-    - stage: coverage
+    - stage: test
       language: node_js
       node_js: '11'
       dist: trusty
