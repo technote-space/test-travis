@@ -25,6 +25,6 @@ Thumbs.db
 logs
 /cache
 
-!bin/*.sh
+!tests/bin/**/*.sh
 /coverage
 /vendor
