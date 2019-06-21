@@ -20,9 +20,9 @@ cache:
 
 stages:
   - name: check
-    if: tag IS blank
+    if: branch = master and tag IS blank and type = pull_request
   - name: test
-    if: tag IS blank
+    if: branch = master and tag IS blank and type = pull_request
   - name: deploy
     if: tag IS present
 
