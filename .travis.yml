@@ -11,6 +11,7 @@ notifications:
 branches:
   only:
     - master
+    - "/^v[0-9\\.]+/"
 
 cache:
   directories:
@@ -18,13 +19,15 @@ cache:
     - $HOME/.npm
 
 stages:
-  - check
-  - test
-
-matrix:
-  fast_finish: true
+  - name: check
+    if: tag IS blank
+  - name: test
+    if: tag IS blank
+  - name: deploy
+    if: tag IS present
 
 jobs:
+  fast_finish: true
   include:
     - stage: check
       language: php
@@ -55,7 +58,6 @@ jobs:
       env:
         - WP_VERSION=latest
         - WP_MULTISITE=1
-        - COVERAGE_REPORT=1
       script: bash tests/bin/php/wp-test.sh
     - stage: test
       language: php
@@ -68,6 +70,7 @@ jobs:
       env:
         - WP_VERSION=5.2
         - WP_MULTISITE=1
+        - COVERAGE_REPORT=1
       script: bash tests/bin/php/wp-test.sh
     - stage: test
       language: php
@@ -80,12 +83,6 @@ jobs:
       env:
         - WP_VERSION=5.1
         - WP_MULTISITE=1
-      script: bash tests/bin/php/wp-test.sh
-    - stage: test
-      language: php
-      php: '7.0'
-      env:
-        - WP_VERSION=latest
         - COVERAGE_REPORT=1
       script: bash tests/bin/php/wp-test.sh
     - stage: test
@@ -93,12 +90,21 @@ jobs:
       php: '7.0'
       env:
         - WP_VERSION=5.0
+        - COVERAGE_REPORT=1
+      script: bash tests/bin/php/wp-test.sh
+    - stage: test
+      language: php
+      php: '7.0'
+      env:
+        - WP_VERSION=latest
         - WP_MULTISITE=1
       script: bash tests/bin/php/wp-test.sh
     - stage: test
       language: php
       php: '5.6'
-      env: WP_VERSION=latest
+      env:
+        - WP_VERSION=latest
+        - COVERAGE_REPORT=1
       script: bash tests/bin/php/wp-test.sh
     - stage: test
       language: php
@@ -135,6 +141,22 @@ jobs:
       dist: trusty
       env: COVERAGE_REPORT=1
       script: bash tests/bin/js/js-test.sh
+
+
+    - stage: deploy
+      language: node_js
+      node_js: '11'
+      dist: trusty
+      before_deploy: bash tests/bin/deploy/create_files.zh
+      deploy:
+        provider: releases
+        skip_cleanup: true
+        draft: true
+        api_key:
+          secure: be+VVnNbkweCydikkzwWWtwl8ujtR6U+Q8UG4tghoEyVednJZIo3HQ64gnVO2LpY4xZzw3IzXfcAk9yjaj690khBMZR9tjAXcFuBUSmlkY7YK3fuVfGYD0BuRzUqDVFy+cjvvQQgUYE8iPty9JnRJuSc7RRhgAcQjiZdblLogi02ROgDOKdmriD/4XZQOMpXiqmudicwXWGHC3OyqEIFfEMRZ6Tni4DTQywpVnFU4sOXpYZ3c8Vxb/pTZqbf8wZOvbMxvzWKYL0bfefnPuZxVmoIIBIE38k98lYclUNlyCCY9z9BgEQhgorH/NEosGV+eeMe6U+WLVN9JfOaY2VsJniiMndW7+rq6AklFxetveVczYdN343rQxY8KGX1wFZPYVsVrC6/ZxgvbvIjynl90oID87luDAhseHEBzKo4b6hUCkvmQwQkWf5Mt3d62fNAlbSCTsP4ivON0eXij+EvBqrA4Ax2d17uFLrJUiVuaetCMzW1L1AKTHGRSpE8bD+wrUNCqSTE4fPaJFemA7GAD0A4GiF/dDfJbq6DYgJ//Q6jYwVL4193o41ZyQx2ghdDj5cZg2jKjFtMhrdTvNXTw3CUku9iX0a8CJuTh02VRgnyrOA2p8d9OPLB/xkHF4GDtKfCX78g1NngK14lReModZNHTFYcfHPve0+FCHg2DgE=
+        file: "${RELEASE_FILE}"
+        on:
+          tags: true
 
   allow_failures:
     - env: WP_VERSION=4.9
