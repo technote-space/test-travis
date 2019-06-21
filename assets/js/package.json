@@ -2,8 +2,8 @@
   "name": "test-travis",
   "version": "0.0.1",
   "description": "Test for Travis CI",
-  "main": "build/index.js",
   "scripts": {
+    "start": "npm run build",
     "test": "npm run lint && npm run jest",
     "test:update": "npm run lint && npm run jest:update",
     "lint": "eslint src/**/**/*.js && eslint __tests__/**/**/*.js",
