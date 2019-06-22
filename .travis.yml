@@ -147,7 +147,7 @@ jobs:
       language: node_js
       node_js: '11'
       dist: trusty
-      script: bash tests/bin/deploy/create_files.zh
+      script: bash tests/bin/deploy/create_files.sh
       deploy:
         provider: releases
         skip_cleanup: true
