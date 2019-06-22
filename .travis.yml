@@ -7,7 +7,7 @@ notifications:
   email: false
   slack:
     rooms:
-      - secure: "t8X31B1T4ZF/T0BqCUvpOH4jhGMORZryKx+vAKkF+N0/xhbJ65Q237iDWiYHASMSwFJfQiC761UBs3Cdm4mGfF5JXImkq3/E/6WCOTK5a7pRKT9gMSrDdF5ICdgYIfYDb4HJsqbrkS0KIOpn01NKC+tLSFfkFO5ZPs5VXnFuV4UTMBIAJBLhjRY+Qix76b3fNEgDcQ4eckDvWpc3dDcuVP5hXMPhmCg4oj8hJQGJF5UfcBtrbIoWOBOtxqqtHZcOPDEUqDJD8jWtHYd7i/khMQaloRcMHz1RX7fwpOCetVM8NE0y1uvjAXcz9REMOdfhqW13IPiY8Zod5vRgYp/0Yl1JJIyAcVG78r3EUKQ30KM9oo/ql4wpkEyHD7T3532/hMgn2ENDGOn6sdYnhOluX2t6VP8XL3ehpqFIupuLOfhkB/fMFLef2ztsEEv2rDR/ZvJbBmhEU92wdF1JeISQNIIkdCjL3ChIB6DpwsBo/xivWQgUTpn4TQNzihD2oBANXCo9L/YUQsbZ2FjZNP3A7V2JS9z/GFpgzDuBgdjIQFV32Bdz7SDYsVMANhP61OgJuKMo+WI0VZgOjO+v90Ld+Fone18AIeTglSbrIKCi8ZnXUgOzS2XaS0CGoanTjjqHhwezSOgPYyRNsDXY854PRqK2RXYWK70Z9nOUtFlKtpQ="
+      - secure: "XrZGe0s6HIWsMSKBh9gnSOe/Miu9CIOOPWfqaeKe/ccfJI8CbPg2TO/x1JQBdr8njWLkbRqhKbWEnHmxudPw2my4HujtFOLKUnw1t64B6xn7iVv06ie4h6bcHRhdReU5fEsNMKiA43djVrpOl+mY7BvQbI/pLoiqpgF23Rn3aYJd9MnJ/yiy8Mc0jEjZ3Z2MTB458mFT1CVT539sjVkjcv6j3+lqpL1Hajb6bl4XrPjGLcmYkL984YYkGeFtRIlNjijsQWW5g5TTSHwtvoZ1qUlqVWQjF/s+Y6ApNhOPtIp/+SYHi/j4fdEpddi/i3xHhM+rISh35oF3+lCYfDwmc6wRSuwzETYRe0W7psz6uGNgHA+SfLYyGsdaC9Zos32GwtqVMpGuxl5KtPsf6FCfz7Fx9bVnAuYFgF1Minp/SOAlKhrPpZQyJ3fUsB6MitA3NmqZL+cXsrh8ZH6fG02Q3GMErVyZTIsTZSDwdvIF+QtlLlR41ANAhwTNDoln+3rxilxPpgAOq6d2QFZFJ4zCzrbqNIyCtaypdAs2wZY59md87cK19cDrb62G0cf9RJ7YaJlDHzFVvgAcqOtdv3p79AKPhwxnVqGuSfU9eZ0qmr3sLskUomINKws+xuVtS8Q4EVjBkouGP99f+cB67i1Pwhsj/z8ARwGXBbfMUjj43tA="
 
 branches:
   only:
@@ -45,123 +45,123 @@ jobs:
       dist: trusty
       script: bash tests/bin/js/js-lint.sh
 
+#
+#    - stage: test
+#      language: php
+#      php: '7.3'
+#      env:
+#        - WP_VERSION=latest
+#        - COVERAGE_REPORT=1
+#      script: bash tests/bin/php/wp-test.sh
+#    - stage: test
+#      language: php
+#      php: '7.3'
+#      env:
+#        - WP_VERSION=latest
+#        - WP_MULTISITE=1
+#      script: bash tests/bin/php/wp-test.sh
+#    - stage: test
+#      language: php
+#      php: '7.2'
+#      env: WP_VERSION=latest
+#      script: bash tests/bin/php/wp-test.sh
+#    - stage: test
+#      language: php
+#      php: '7.2'
+#      env:
+#        - WP_VERSION=5.2
+#        - WP_MULTISITE=1
+#        - COVERAGE_REPORT=1
+#      script: bash tests/bin/php/wp-test.sh
+#    - stage: test
+#      language: php
+#      php: '7.1'
+#      env: WP_VERSION=latest
+#      script: bash tests/bin/php/wp-test.sh
+#    - stage: test
+#      language: php
+#      php: '7.1'
+#      env:
+#        - WP_VERSION=5.1
+#        - WP_MULTISITE=1
+#        - COVERAGE_REPORT=1
+#      script: bash tests/bin/php/wp-test.sh
+#    - stage: test
+#      language: php
+#      php: '7.0'
+#      env:
+#        - WP_VERSION=5.0
+#        - COVERAGE_REPORT=1
+#      script: bash tests/bin/php/wp-test.sh
+#    - stage: test
+#      language: php
+#      php: '7.0'
+#      env:
+#        - WP_VERSION=latest
+#        - WP_MULTISITE=1
+#      script: bash tests/bin/php/wp-test.sh
+#    - stage: test
+#      language: php
+#      php: '5.6'
+#      env:
+#        - WP_VERSION=latest
+#        - COVERAGE_REPORT=1
+#      script: bash tests/bin/php/wp-test.sh
+#    - stage: test
+#      language: php
+#      php: '5.6'
+#      env:
+#        - WP_VERSION=5.0
+#        - WP_MULTISITE=1
+#        - COVERAGE_REPORT=1
+#      script: bash tests/bin/php/wp-test.sh
+#    - stage: test
+#      language: php
+#      php: '5.6'
+#      env: WP_VERSION=trunk
+#      script: bash tests/bin/php/wp-test.sh
+#    - stage: test
+#      language: php
+#      php: '5.6'
+#      env: WP_VERSION=4.9
+#      script: bash tests/bin/php/wp-test.sh
+#    - stage: test
+#      language: php
+#      php: '5.6'
+#      env: WP_VERSION=3.9
+#      script: bash tests/bin/php/wp-test.sh
+#
+#    - stage: test
+#      language: node_js
+#      node_js: '10'
+#      dist: trusty
+#      script: bash tests/bin/js/js-test.sh
+#    - stage: test
+#      language: node_js
+#      node_js: '11'
+#      dist: trusty
+#      env: COVERAGE_REPORT=1
+#      script: bash tests/bin/js/js-test.sh
+#
+#
+#    - stage: deploy
+#      language: node_js
+#      node_js: '11'
+#      dist: trusty
+#      script: skip
+#      before_deploy:
+#        - source tests/bin/deploy/env.sh
+#        - bash tests/bin/deploy/create.sh
+#      deploy:
+#        provider: releases
+#        skip_cleanup: true
+#        draft: true
+#        api_key:
+#          secure: be+VVnNbkweCydikkzwWWtwl8ujtR6U+Q8UG4tghoEyVednJZIo3HQ64gnVO2LpY4xZzw3IzXfcAk9yjaj690khBMZR9tjAXcFuBUSmlkY7YK3fuVfGYD0BuRzUqDVFy+cjvvQQgUYE8iPty9JnRJuSc7RRhgAcQjiZdblLogi02ROgDOKdmriD/4XZQOMpXiqmudicwXWGHC3OyqEIFfEMRZ6Tni4DTQywpVnFU4sOXpYZ3c8Vxb/pTZqbf8wZOvbMxvzWKYL0bfefnPuZxVmoIIBIE38k98lYclUNlyCCY9z9BgEQhgorH/NEosGV+eeMe6U+WLVN9JfOaY2VsJniiMndW7+rq6AklFxetveVczYdN343rQxY8KGX1wFZPYVsVrC6/ZxgvbvIjynl90oID87luDAhseHEBzKo4b6hUCkvmQwQkWf5Mt3d62fNAlbSCTsP4ivON0eXij+EvBqrA4Ax2d17uFLrJUiVuaetCMzW1L1AKTHGRSpE8bD+wrUNCqSTE4fPaJFemA7GAD0A4GiF/dDfJbq6DYgJ//Q6jYwVL4193o41ZyQx2ghdDj5cZg2jKjFtMhrdTvNXTw3CUku9iX0a8CJuTh02VRgnyrOA2p8d9OPLB/xkHF4GDtKfCX78g1NngK14lReModZNHTFYcfHPve0+FCHg2DgE=
+#        file: "${RELEASE_FILE}"
+#        on:
+#          tags: true
 
-    - stage: test
-      language: php
-      php: '7.3'
-      env:
-        - WP_VERSION=latest
-        - COVERAGE_REPORT=1
-      script: bash tests/bin/php/wp-test.sh
-    - stage: test
-      language: php
-      php: '7.3'
-      env:
-        - WP_VERSION=latest
-        - WP_MULTISITE=1
-      script: bash tests/bin/php/wp-test.sh
-    - stage: test
-      language: php
-      php: '7.2'
-      env: WP_VERSION=latest
-      script: bash tests/bin/php/wp-test.sh
-    - stage: test
-      language: php
-      php: '7.2'
-      env:
-        - WP_VERSION=5.2
-        - WP_MULTISITE=1
-        - COVERAGE_REPORT=1
-      script: bash tests/bin/php/wp-test.sh
-    - stage: test
-      language: php
-      php: '7.1'
-      env: WP_VERSION=latest
-      script: bash tests/bin/php/wp-test.sh
-    - stage: test
-      language: php
-      php: '7.1'
-      env:
-        - WP_VERSION=5.1
-        - WP_MULTISITE=1
-        - COVERAGE_REPORT=1
-      script: bash tests/bin/php/wp-test.sh
-    - stage: test
-      language: php
-      php: '7.0'
-      env:
-        - WP_VERSION=5.0
-        - COVERAGE_REPORT=1
-      script: bash tests/bin/php/wp-test.sh
-    - stage: test
-      language: php
-      php: '7.0'
-      env:
-        - WP_VERSION=latest
-        - WP_MULTISITE=1
-      script: bash tests/bin/php/wp-test.sh
-    - stage: test
-      language: php
-      php: '5.6'
-      env:
-        - WP_VERSION=latest
-        - COVERAGE_REPORT=1
-      script: bash tests/bin/php/wp-test.sh
-    - stage: test
-      language: php
-      php: '5.6'
-      env:
-        - WP_VERSION=5.0
-        - WP_MULTISITE=1
-        - COVERAGE_REPORT=1
-      script: bash tests/bin/php/wp-test.sh
-    - stage: test
-      language: php
-      php: '5.6'
-      env: WP_VERSION=trunk
-      script: bash tests/bin/php/wp-test.sh
-    - stage: test
-      language: php
-      php: '5.6'
-      env: WP_VERSION=4.9
-      script: bash tests/bin/php/wp-test.sh
-    - stage: test
-      language: php
-      php: '5.6'
-      env: WP_VERSION=3.9
-      script: bash tests/bin/php/wp-test.sh
-
-    - stage: test
-      language: node_js
-      node_js: '10'
-      dist: trusty
-      script: bash tests/bin/js/js-test.sh
-    - stage: test
-      language: node_js
-      node_js: '11'
-      dist: trusty
-      env: COVERAGE_REPORT=1
-      script: bash tests/bin/js/js-test.sh
-
-
-    - stage: deploy
-      language: node_js
-      node_js: '11'
-      dist: trusty
-      script: skip
-      before_deploy:
-        - source tests/bin/deploy/env.sh
-        - bash tests/bin/deploy/create.sh
-      deploy:
-        provider: releases
-        skip_cleanup: true
-        draft: true
-        api_key:
-          secure: be+VVnNbkweCydikkzwWWtwl8ujtR6U+Q8UG4tghoEyVednJZIo3HQ64gnVO2LpY4xZzw3IzXfcAk9yjaj690khBMZR9tjAXcFuBUSmlkY7YK3fuVfGYD0BuRzUqDVFy+cjvvQQgUYE8iPty9JnRJuSc7RRhgAcQjiZdblLogi02ROgDOKdmriD/4XZQOMpXiqmudicwXWGHC3OyqEIFfEMRZ6Tni4DTQywpVnFU4sOXpYZ3c8Vxb/pTZqbf8wZOvbMxvzWKYL0bfefnPuZxVmoIIBIE38k98lYclUNlyCCY9z9BgEQhgorH/NEosGV+eeMe6U+WLVN9JfOaY2VsJniiMndW7+rq6AklFxetveVczYdN343rQxY8KGX1wFZPYVsVrC6/ZxgvbvIjynl90oID87luDAhseHEBzKo4b6hUCkvmQwQkWf5Mt3d62fNAlbSCTsP4ivON0eXij+EvBqrA4Ax2d17uFLrJUiVuaetCMzW1L1AKTHGRSpE8bD+wrUNCqSTE4fPaJFemA7GAD0A4GiF/dDfJbq6DYgJ//Q6jYwVL4193o41ZyQx2ghdDj5cZg2jKjFtMhrdTvNXTw3CUku9iX0a8CJuTh02VRgnyrOA2p8d9OPLB/xkHF4GDtKfCX78g1NngK14lReModZNHTFYcfHPve0+FCHg2DgE=
-        file: "${RELEASE_FILE}"
-        on:
-          tags: true
-
-  allow_failures:
-    - env: WP_VERSION=4.9
-    - env: WP_VERSION=3.9
+#  allow_failures:
+#    - env: WP_VERSION=4.9
+#    - env: WP_VERSION=3.9
