@@ -4,9 +4,9 @@ sudo: false
 dist: trusty
 
 notifications:
-  email:
-    on_success: never
-    on_failure: change
+  email: false
+  slack:
+    secure: WAIJ8bbzNvlIbgsza+dX+017mVWHsZPgjj4ZpQ+roji2c5SV7L5FBEIxna+Zwq89Ngdvq2I7mHBJ+qsJ9gvSrlgbhsYX4ihMnTui2eBa7anySYwVoleLcWDh8oiLz2YDO6upfRs/IYTJdLUEZreol2qTOMgpDNPcNNRKAI/4DsvmvnZSCp7KSvsvLXbiMBXt6Ptmj0OBm2tSdTLFwFCSpBccjL+rI+6rKu2dInRbrPkPrmim/sK1CCOjz8YeyLsqXOSUvgsIpNUkaf5OGgliNhQ0eYIbwBzux3/iE0cY1U11991BRP0MidCgszSP5xXJsjypDx5omdRq6bHNIX7hUye10L82hX1o9WbQMVcc/P+aS5DV1OqesjRT66vwqGQMeyUPY6gmu/yVcpKgT5jB4cYip4I3qUNkM5McEjmMSAkw035Hz0FkwYwF/M0Jqzkp7ssGbGgMx55JEiNDdg8Prk0HmIFHLbYWYd0Uj4w+WuHszxkx7yOwtR7xjIP4mvrbmD+UIImqcxIH/RB/BjWxwNOtLIYSfx07i47RTtmO6LUSsdPdimiVfF92FkaAEqOMMso9MUJX4zbByS39mfmYUv5Mumr+18B09QwMd4WsWQ5eowb+3k/5LhlXR/7Qv28P13uTiLllac/54rlwrF3/q3vgoPsE3PE7C/CDpVnQQGk=
 
 branches:
   only:
