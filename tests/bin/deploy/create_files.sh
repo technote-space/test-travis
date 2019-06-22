@@ -35,10 +35,8 @@ rm -f ${PACKAGE_DIR}/index.php
 rm -rdf ${PACKAGE_DIR}/vendor/bin
 
 
-ZIP_FILENAME=${TRAVIS_REPO_SLUG##*/}.zip
+export RELEASE_FILE=${TRAVIS_REPO_SLUG##*/}.zip
 
 pushd ${PACKAGE_DIR}
-zip -9 -qr ${TRAVIS_BUILD_DIR}/${ZIP_FILENAME} .
+zip -9 -qr ${TRAVIS_BUILD_DIR}/${RELEASE_FILE} .
 pushd
-
-export RELEASE_FILE=${TRAVIS_BUILD_DIR}/${ZIP_FILENAME}
