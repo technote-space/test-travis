@@ -2,11 +2,14 @@
 
 set -ex
 
+if [[ -z "$PACKAGE_DIR" ]] || [[ -z "$RELEASE_FILE" ]]; then
+  exit 1
+fi
+
 composer update --no-dev --working-dir=${TRAVIS_BUILD_DIR}
 
-PACKAGE_DIR=${TRAVIS_BUILD_DIR}/packages
-
 rm -rdf ${PACKAGE_DIR}
+rm -f ${RELEASE_FILE}
 mkdir -p ${PACKAGE_DIR}/assets/js/
 
 cp -r ${TRAVIS_BUILD_DIR}/assets/css         ${PACKAGE_DIR}/assets/ 2>/dev/null || :
@@ -35,8 +38,8 @@ rm -f ${PACKAGE_DIR}/index.php
 rm -rdf ${PACKAGE_DIR}/vendor/bin
 
 
-export RELEASE_FILE=${TRAVIS_REPO_SLUG##*/}.zip
-
 pushd ${PACKAGE_DIR}
 zip -9 -qr ${TRAVIS_BUILD_DIR}/${RELEASE_FILE} .
 pushd
+
+ls -la ${RELEASE_FILE}

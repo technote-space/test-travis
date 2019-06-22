@@ -4,9 +4,10 @@ sudo: false
 dist: trusty
 
 notifications:
-  email:
-    on_success: never
-    on_failure: change
+  email: false
+  slack:
+    rooms:
+      - secure: "yHcw8QFMnWjUVQmzBYQ19+2SKOeAORYpn53mIgdGXeImflXuZaqwe07N38IAFNpKOlsXbVzF0uyFZkF3Ru0KiDu0IMGu7WEpTMMFFI/UNfY/fwoEjOOVnMrU2eTAnFJ3F/C2O/OaG7Wa3fnYGm50Vx9j5PSWI4qUP1PIHH+a6RpDWPUmbTlq5F3lFXAdbB6ZMfv3wl+3lVTHiGh9FcTS0YfYVZmR7serB+iJue6F+GMrtaRdzSW+qWjY2jMIXOkqi5cEGTkNahfykZO0+fEgyMFIokN+Crg546LfIUkFtSvRVywbsDnYxpoQoF1Z4e8H/KmRNC6k6/KiL4Qnl+oRKADuJjaY9bCgaRcDEIpA/aeu17Ey60pnSvUhS38KjM/G8kKmLcwJZXECzKLujUYtsnY7WvOS2agYvOexDmOLQeDueYJ3xsdCBAQSFTHiY1jPmYvdUseSRgVtElTw48iN+goUyVTZ8T7F5Tscqf7PQefMu1fJsuSN4yq1AUBr8xF8bpNN+TD5rFrbZ4I02MhOmTZv4vxbnc79mSFURJvuNyPmCsfCBNd4JPtDwEQk0Kf9YhUrYcDwsknB0nReH/0q0zpaIOAj4gD/5d/AUXWjfdOSGfDfzf1nc62m7AY9IH4rbyW+0Vxgov1/EaYUGkHFdItk19v5BmWq9+nNRJKZvi4="
 
 branches:
   only:
@@ -147,7 +148,10 @@ jobs:
       language: node_js
       node_js: '11'
       dist: trusty
-      script: bash tests/bin/deploy/create_files.sh
+      script: skip
+      before_deploy:
+        - source tests/bin/deploy/env.sh
+        - bash tests/bin/deploy/create.sh
       deploy:
         provider: releases
         skip_cleanup: true
