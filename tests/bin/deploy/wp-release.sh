@@ -2,33 +2,6 @@
 
 set -e
 
-echo ""
-echo WP_TAG: ${WP_TAG}
-echo TRAVIS_TAG: ${TRAVIS_TAG}
-echo SVN_COMMIT_MESSAGE: ${SVN_COMMIT_MESSAGE}
-echo SVN_TAG_MESSAGE: ${SVN_TAG_MESSAGE}
-
-TAGS=($(git for-each-ref --sort=-taggerdate --format='%(tag)' refs/tags))
-
-echo ""
-echo "tag count:"
-echo ${#TAGS[@]}
-
-if [[ ${#TAGS[@]} -lt 2 ]]; then
-	COMMIT_RANGE=${TRAVIS_COMMIT}...$(git log -1 --format=format:"%H" ${TAGS[1]})
-else
-	COMMIT_RANGE=${TRAVIS_COMMIT}...$(git rev-list --max-parents=0 HEAD)
-fi
-
-echo ${COMMIT_RANGE}
-
-echo ""
-echo "commits"
-LOGS=$(git log ${COMMIT_RANGE} --no-merges --oneline)
-COMMIT_MESSAGE=$'**Change log:**<br/>'${LOGS//$'\n'/<br/>}
-echo ${COMMIT_MESSAGE}
-echo ""
-
 bash ${TRAVIS_BUILD_DIR}/tests/bin/deploy/prepare_svn.sh
 
 if [[ ! -d ${SVN_DIR} ]]; then
