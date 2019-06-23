@@ -7,7 +7,7 @@ ls -la ${TRAVIS_BUILD_DIR}/assets/js/node_modules/.bin/webpack
 
 echo ""
 echo ">> Run npm jest."
-npm run jest --prefix ${TRAVIS_BUILD_DIR}/assets/js
+npm run cover --prefix ${TRAVIS_BUILD_DIR}/assets/js
 
 if [[ ! -z "${COVERAGE_REPORT}" ]] && [[ ! -z "${CI}" ]]; then
 	ls -la ${TRAVIS_BUILD_DIR}/assets/js/coverage/lcov.info
