@@ -8,12 +8,16 @@ echo WP_TAG: ${WP_TAG}
 echo SVN_COMMIT_MESSAGE: ${SVN_COMMIT_MESSAGE}
 echo SVN_TAG_MESSAGE: ${SVN_TAG_MESSAGE}
 
-if [[ -z "${SVN_USER}" ]] || [[ -z "${SVN_PASS}" ]]; then
-	echo "svn account info <SVN_USER>, <SVN_PASS> are required."
-	exit 1
+bash ${TRAVIS_BUILD_DIR}/tests/bin/deploy/prepare_svn.sh
+
+if [[ ! -d ${SVN_DIR} ]]; then
+	exit;
 fi
 
-bash ${TRAVIS_BUILD_DIR}/tests/bin/deploy/prepare_svn.sh
+if [[ -z "${SVN_USER}" ]] || [[ -z "${SVN_PASS}" ]]; then
+	echo "<SVN_USER>, <SVN_PASS> are required."
+	exit 1
+fi
 
 pushd ${SVN_DIR}
 
