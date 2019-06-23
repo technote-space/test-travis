@@ -2,16 +2,6 @@
 
 set -e
 
-echo TRAVIS_EVENT_TYPE: ${TRAVIS_EVENT_TYPE}
-echo TRAVIS_COMMIT: ${TRAVIS_COMMIT}
-echo TRAVIS_COMMIT_RANGE: ${TRAVIS_COMMIT_RANGE}
-echo TRAVIS_PULL_REQUEST: ${TRAVIS_PULL_REQUEST}
-echo TRAVIS_PULL_REQUEST_BRANCH: ${TRAVIS_PULL_REQUEST_BRANCH}
-echo TRAVIS_PULL_REQUEST_SHA: ${TRAVIS_PULL_REQUEST_SHA}
-echo TRAVIS_PULL_REQUEST_SLUG: ${TRAVIS_PULL_REQUEST_SLUG}
-echo TRAVIS_REPO_SLUG: ${TRAVIS_REPO_SLUG}
-echo TRAVIS_REPO_SLUG: ${TRAVIS_REPO_SLUG}
-echo TRAVIS_TAG: ${TRAVIS_TAG}
 echo ""
 echo WP_TAG: ${WP_TAG}
 echo TRAVIS_TAG: ${TRAVIS_TAG}
@@ -24,22 +14,20 @@ echo ""
 echo "tag count:"
 echo ${#TAGS[@]}
 
-if [[ ! ${TRAVIS_COMMIT_RANGE} =~ \.\.\. ]]; then
-	if [[ ${#TAGS[@]} = 0 ]]; then
-		echo "tag not exists."
-		PARENTS=$(git log -n 1 --format="%P" ${TRAVIS_COMMIT_RANGE})
-		TRAVIS_COMMIT_RANGE=${TRAVIS_COMMIT_RANGE}...${PARENTS%% *}
-	else
-		[[ ${TRAVIS_TAG} = ${TAGS[0]} ]] && LAST_TAG=${TAGS[1]} || LAST_TAG=${TAGS[0]}
-		echo ""
-		echo "last tag: "
-		echo ${TAGS[0]}
-		git show ${LAST_TAG}
-		TRAVIS_COMMIT_RANGE=${TRAVIS_COMMIT_RANGE}...$(git log -1 --format=format:"%H" ${LAST_TAG})
-	fi
+if [[ ${#TAGS[@]} -lt 2 ]]; then
+	COMMIT_RANGE=${TRAVIS_COMMIT}...$(git log -1 --format=format:"%H" ${TAGS[1]})
+else
+	COMMIT_RANGE=${TRAVIS_COMMIT}...$(git rev-list --max-parents=0 HEAD)
 fi
 
-echo ${TRAVIS_COMMIT_RANGE}
+echo ${COMMIT_RANGE}
+
+echo ""
+echo "commits"
+LOGS=$(git log ${COMMIT_RANGE} --no-merges --oneline)
+COMMIT_MESSAGE=$'**Change log:**<br/>'${LOGS//$'\n'/<br/>}
+echo ${COMMIT_MESSAGE}
+echo ""
 
 bash ${TRAVIS_BUILD_DIR}/tests/bin/deploy/prepare_svn.sh
 
