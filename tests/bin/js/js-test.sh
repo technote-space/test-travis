@@ -6,7 +6,7 @@ bash ${TRAVIS_BUILD_DIR}/tests/bin/js/install-npm.sh
 ls -la ${TRAVIS_BUILD_DIR}/assets/js/node_modules/.bin/webpack
 
 echo ""
-echo ">> Run npm jest."
+echo ">> Run npm test."
 npm run cover --prefix ${TRAVIS_BUILD_DIR}/assets/js
 
 if [[ ! -z "${COVERAGE_REPORT}" ]] && [[ ! -z "${CI}" ]]; then
