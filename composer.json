@@ -53,7 +53,7 @@
     "bin:js-lint": "TRAVIS_BUILD_DIR=$(cd $(dirname $0); pwd) ./tests/bin/js/js-lint.sh",
     "bin:js-test": "TRAVIS_BUILD_DIR=$(cd $(dirname $0); pwd) ./tests/bin/js/js-test.sh",
     "bin:build": "TRAVIS_BUILD_DIR=$(cd $(dirname $0); pwd) TRAVIS_REPO_SLUG=technote-space/test-travis TRAVIS_TAG=v1.2.3 source ./tests/bin/deploy/env.sh && bash ./tests/bin/deploy/create.sh",
-    "bin:test": "TRAVIS_BUILD_DIR=$(cd $(dirname $0); pwd) TRAVIS_REPO_SLUG=technote-space/test-travis TRAVIS_TAG=v1.2.3 bash ./tests/bin/test.sh",
+    "bin:test": "COMPOSER_PROCESS_TIMEOUT=6000 TRAVIS_BUILD_DIR=$(cd $(dirname $0); pwd) TRAVIS_REPO_SLUG=technote-space/test-travis TRAVIS_TAG=v1.2.3 bash ./tests/bin/test.sh",
     "bin:diff": "TRAVIS_BUILD_DIR=$(cd $(dirname $0); pwd) TRAVIS_REPO_SLUG=technote-space/test-travis TRAVIS_TAG=v1.2.3 source ./tests/bin/deploy/env.sh && bash ./tests/bin/deploy/wp-check-diff.sh"
   }
 }
