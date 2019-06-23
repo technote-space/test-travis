@@ -23,5 +23,5 @@ if [[ ${TRAVIS_BUILD_STAGE_NAME} = "Deploy" ]]; then
 	fi
 
 	LOGS=$(git log ${COMMIT_RANGE} --no-merges --oneline)
-	export COMMIT_MESSAGE='## What’s Changed<br/>* '${LOGS//$'\n'/<br/>* }
+	export COMMIT_MESSAGE="## What’s Changed"$'\n'"* "${LOGS//$'\n'/$'\n'* }
 fi
