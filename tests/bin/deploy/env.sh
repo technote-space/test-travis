@@ -14,14 +14,14 @@ export SVN_URL=https://plugins.svn.wordpress.org/${REPO_NAME}
 export SVN_COMMIT_MESSAGE="Commit release ${TRAVIS_TAG}"
 export SVN_TAG_MESSAGE="Take snapshot of ${TRAVIS_TAG}"
 
-if [[ ${TRAVIS_BUILD_STAGE_NAME} = "Deploy" ]]; then
-	TAGS=($(git for-each-ref --sort=-taggerdate --format='%(tag)' refs/tags))
-	if [[ ${#TAGS[@]} -lt 2 ]]; then
-		COMMIT_RANGE=${TRAVIS_COMMIT}...$(git rev-list --max-parents=0 HEAD)
-	else
-		COMMIT_RANGE=${TRAVIS_COMMIT}...$(git log -1 --format=format:"%H" ${TAGS[1]})
-	fi
-
-	LOGS=$(git log ${COMMIT_RANGE} --no-merges --oneline)
-	export COMMIT_MESSAGE="## What’s Changed"$'\n'"* "${LOGS//$'\n'/$'\n'* }
-fi
+#if [[ ${TRAVIS_BUILD_STAGE_NAME} = "Deploy" ]]; then
+#	TAGS=($(git for-each-ref --sort=-taggerdate --format='%(tag)' refs/tags))
+#	if [[ ${#TAGS[@]} -lt 2 ]]; then
+#		COMMIT_RANGE=${TRAVIS_COMMIT}...$(git rev-list --max-parents=0 HEAD)
+#	else
+#		COMMIT_RANGE=${TRAVIS_COMMIT}...$(git log -1 --format=format:"%H" ${TAGS[1]})
+#	fi
+#
+#	LOGS=$(git log ${COMMIT_RANGE} --no-merges --oneline)
+#	export COMMIT_MESSAGE="## What’s Changed"$'\n'"* "${LOGS//$'\n'/$'\n'* }
+#fi
