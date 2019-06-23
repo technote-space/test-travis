@@ -24,6 +24,8 @@ stages:
     if: branch = master and tag IS blank and type = pull_request
   - name: test
     if: branch = master and tag IS blank and type = pull_request
+  - name: prepare
+    if: branch = master and tag IS blank and type = pull_request
   - name: deploy
     if: tag IS present
 
@@ -144,14 +146,21 @@ jobs:
       script: bash tests/bin/js/js-test.sh
 
 
+    - stage: prepare
+      language: node_js
+      node_js: '11'
+      dist: trusty
+      script:
+        - source tests/bin/deploy/env.sh &&  bash tests/bin/deploy/wp-check-diff.sh
+
+
     - stage: deploy
       language: node_js
       node_js: '11'
       dist: trusty
       script: skip
       before_deploy:
-        - source tests/bin/deploy/env.sh
-        - bash tests/bin/deploy/create.sh
+        - source tests/bin/deploy/env.sh && bash tests/bin/deploy/create.sh
       deploy:
         provider: releases
         skip_cleanup: true
@@ -160,8 +169,16 @@ jobs:
         api_key:
           secure: vIo/kxTQOQpBq3zb0LpMnWHS2IYvzV0G7XkJweQnfppfkklUO/y/cnXKHOZhoT+V22MymjI9cJnVTO718y8ZGfvdLv6LIgrQjYfM3xt0NCISJCeuQReEH/e0Fel9wtJ19WMRnmA39w429ZfxpSzlsCV2Cv0N0lrcNJOc5xVwVZAtsBpdjROkIg0q26W3nFLuI5y1NnKm+RF28YO7PTPn0mqxEG/TLiLLCiY6USZq9J/vetiIdX4fd9B5WAWGNVRkM1FSZ4rl1W2vFGtMT607HOSAtj7bq7gNW9Qh6FDhAO+/NoayhxJcj/2dan0yT/MmdXsK4yTc19MCRbQe8oN+1BZnG7PVcHCpjo85YEEc5AL8iVQ+rdH8xypvR60rcPfVkR3wnNI1ExXSx61oZmhO2bU9fN7P7ahcKK76v5h52t0kSbykWI6AsGLhgXzB/o6FGIfFAoqHAjp0p+jZQxMowSPrdLejk8OLMSUSv8qBphrsvIhzWuf4Fzu1dMY2/RJjv6+9lISyHmFyVD97CZyMsPlGXYIwIKgffGDsG5LOoj5z6Zpy+lZo/7yTncozWRlTUIBimglfU6D6u9sgqaIdKxQ5OD891JbTW4xcV7RBDYxko8cBSHgeMey+9+Wg81vczw1YLGeKyTK6ujWoBaVCLmPB9JjGLWPUhCX2y8D85Ag=
         file: "${RELEASE_FILE}"
-        on:
-          tags: true
+        overwrite: true
+
+    - stage: deploy
+      language: node_js
+      node_js: '11'
+      dist: trusty
+      script: skip
+      deploy:
+        provider: script
+        script: source tests/bin/deploy/env.sh && bash tests/bin/deploy/wp-release.sh
 
   allow_failures:
     - env: WP_VERSION=4.9
