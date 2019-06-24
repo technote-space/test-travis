@@ -28,6 +28,9 @@ Travis CI テスト用
       - WordPress v3.9, v4.9 (allow_failures)
   - JavaScript
     - Jest
+- deploy
+  - GitHub releases
+  - WP Directory
 
 ## Author
 [GitHub (Technote)](https://github.com/technote-space)  
