@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.com/technote-space/test-travis.svg?branch=master)](https://travis-ci.com/technote-space/test-travis)
 [![Coverage Status](https://coveralls.io/repos/github/technote-space/test-travis/badge.svg?branch=master)](https://coveralls.io/github/technote-space/test-travis?branch=master)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/dfbb354ea8214eb39691ca51cd8939f0)](https://app.codacy.com/app/technote-space/test-travis?utm_source=github.com&utm_medium=referral&utm_content=technote-space/test-travis&utm_campaign=Badge_Grade_Settings)
+[![CodeFactor](https://www.codefactor.io/repository/github/technote-space/test-travis/badge)](https://www.codefactor.io/repository/github/technote-space/test-travis)
 [![License: GPL v2+](https://img.shields.io/badge/License-GPL%20v2%2B-blue.svg)](http://www.gnu.org/licenses/gpl-2.0.html)
 [![PHP: >=5.6](https://img.shields.io/badge/PHP-%3E%3D5.6-orange.svg)](http://php.net/)
 [![WordPress: >=5.0](https://img.shields.io/badge/WordPress-%3E%3D5.0-brightgreen.svg)](https://wordpress.org/)
