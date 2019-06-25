@@ -1,6 +1,6 @@
 {
   "name": "test-travis",
-  "version": "0.0.19",
+  "version": "0.0.20",
   "description": "Test for Travis CI",
   "scripts": {
     "start": "npm run build",
