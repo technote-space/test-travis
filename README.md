@@ -34,6 +34,9 @@ Travis CI テスト用
   - GitHub releases
   - WP Directory
 
+## Dependency
+[Scripts for Travis CI](https://github.com/wp-content-framework/travis-ci)
+
 ## Author
 [GitHub (Technote)](https://github.com/technote-space)  
 [Blog](https://technote.space)
