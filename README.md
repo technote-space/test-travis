@@ -16,10 +16,10 @@ Travis CI テスト用
 ## 構成
 - code check
   - PHP
-    - phpcs
-    - phpmd
+    - PHP_CodeSniffer
+    - PHPMD
   - JavaScript
-    - lint
+    - ESLint
 - test
   - PHP
     - PHPUnit
@@ -28,6 +28,8 @@ Travis CI テスト用
       - WordPress v3.9, v4.9 (allow_failures)
   - JavaScript
     - Jest
+- coverage
+  - Coveralls
 - deploy
   - GitHub releases
   - WP Directory
