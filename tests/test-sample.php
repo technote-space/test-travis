@@ -18,7 +18,7 @@ use Test_Travis\Classes\Models\Sample;
 class SampleTest extends WP_UnitTestCase {
 
 	/**
-	 * @var WP_Framework|Phake_IMock
+	 * @var WP_Framework
 	 */
 	protected static $app;
 
