@@ -32,7 +32,8 @@ Travis CI テスト用
   - Coveralls
 - deploy
   - GitHub releases
-  - WP Directory
+  - (GitHub pages)
+  - (WP Directory)
 
 ## Dependency
 [Scripts for Travis CI](https://github.com/wp-content-framework/travis-ci)

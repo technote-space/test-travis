@@ -4,7 +4,7 @@ Tags: travis-ci
 Requires at least: 5.0
 Requires PHP: 5.6
 Tested up to: 5.2.2
-Stable tag: 0.0.22
+Stable tag: 0.0.23
 Donate link: https://paypal.me/technote0space
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -30,7 +30,7 @@ This plugin needs PHP5.6 or higher.
 
 == Upgrade Notice ==
 
-= 0.0.22 (20xx/yy/zz) =
+= 0.0.23 (20xx/yy/zz) =
 
 * First release
 
