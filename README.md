@@ -10,8 +10,17 @@
 
 Travis CI テスト用
 
-<!-- START doctoc -->
-<!-- END doctoc -->
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**
+
+- [要件](#%E8%A6%81%E4%BB%B6)
+- [構成](#%E6%A7%8B%E6%88%90)
+- [Dependency](#dependency)
+- [Author](#author)
+- [プラグイン作成用フレームワーク](#%E3%83%97%E3%83%A9%E3%82%B0%E3%82%A4%E3%83%B3%E4%BD%9C%E6%88%90%E7%94%A8%E3%83%95%E3%83%AC%E3%83%BC%E3%83%A0%E3%83%AF%E3%83%BC%E3%82%AF)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ## 要件
 - PHP 5.6 以上
