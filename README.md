@@ -27,26 +27,40 @@ Travis CI テスト用
 - WordPress 5.0 以上
 
 ## 構成
-- code check
-  - PHP
-    - PHP_CodeSniffer
-    - PHPMD
-  - JavaScript
-    - ESLint
-- test
-  - PHP
-    - PHPUnit
-      - PHP v5.6 - v7.2
-      - WordPress v5.0 - latest
-      - WordPress v3.9, v4.9 (allow_failures)
-  - JavaScript
-    - Jest
-- coverage
-  - Coveralls
-- deploy
-  - GitHub releases
-  - (GitHub pages)
-  - (WP Directory)
+- Travis CI
+  - code check
+    - PHP
+      - PHP_CodeSniffer
+      - PHPMD
+    - JavaScript
+      - ESLint
+  - test
+    - PHP
+      - PHPUnit
+        - PHP v5.6 - v7.3
+        - WordPress v5.0 - latest
+    - JavaScript
+      - Jest
+  - coverage
+    - Coveralls
+  - deploy
+    - GitHub releases
+    - (GitHub pages)
+    - (WP Directory)
+- GitHub Actions
+  - code check
+    - PHP
+      - PHP_CodeSniffer
+      - PHPMD
+    - JavaScript
+      - ESLint
+  - test
+    - PHP
+      - PHPUnit
+        - PHP v5.6 - v7.3
+        - WordPress v5.0 - latest
+    - JavaScript
+      - Jest
 
 ## Dependency
 [Scripts for Travis CI](https://github.com/wp-content-framework/travis-ci)
