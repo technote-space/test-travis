@@ -23,7 +23,7 @@
     "@babel/plugin-proposal-object-rest-spread": "^7.5.5",
     "@babel/plugin-transform-runtime": "^7.6.0",
     "@babel/preset-env": "^7.6.0",
-    "@babel/register": "^7.6.0",
+    "@babel/register": "^7.6.2",
     "babel-jest": "^24.9.0",
     "babel-loader": "^8.0.6",
     "coveralls": "^3.0.6",
