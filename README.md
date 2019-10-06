@@ -2,7 +2,7 @@
 
 [![Build Status](https://github.com/technote-space/test-travis/workflows/Build/badge.svg)](https://github.com/technote-space/test-travis/actions)
 [![Build Status](https://travis-ci.com/technote-space/test-travis.svg?branch=master)](https://travis-ci.com/technote-space/test-travis)
-[![Coverage Status](https://coveralls.io/repos/github/technote-space/test-travis/badge.svg?branch=master)](https://coveralls.io/github/technote-space/test-travis?branch=master)
+[![codecov](https://codecov.io/gh/technote-space/test-travis/branch/master/graph/badge.svg)](https://codecov.io/gh/technote-space/test-travis)
 [![CodeFactor](https://www.codefactor.io/repository/github/technote-space/test-travis/badge)](https://www.codefactor.io/repository/github/technote-space/test-travis)
 [![License: GPL v2+](https://img.shields.io/badge/License-GPL%20v2%2B-blue.svg)](http://www.gnu.org/licenses/gpl-2.0.html)
 [![PHP: >=5.6](https://img.shields.io/badge/PHP-%3E%3D5.6-orange.svg)](http://php.net/)
@@ -42,11 +42,7 @@ Travis CI テスト用
     - JavaScript
       - Jest
   - coverage
-    - Coveralls
-  - deploy
-    - GitHub releases
-    - (GitHub pages)
-    - (WP Directory)
+    - codecov
 - GitHub Actions
   - code check
     - PHP
@@ -61,6 +57,8 @@ Travis CI テスト用
         - WordPress v5.0 - latest
     - JavaScript
       - Jest
+  - deploy
+    - GitHub releases
 
 ## Dependency
 [Scripts for Travis CI](https://github.com/wp-content-framework/travis-ci)
