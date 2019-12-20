@@ -1,6 +1,6 @@
 # Test Travis
 
-[![Build Status](https://github.com/technote-space/test-travis/workflows/Build/badge.svg)](https://github.com/technote-space/test-travis/actions)
+[![CI Status](https://github.com/technote-space/test-travis/workflows/CI/badge.svg)](https://github.com/technote-space/test-travis/actions)
 [![Build Status](https://travis-ci.com/technote-space/test-travis.svg?branch=master)](https://travis-ci.com/technote-space/test-travis)
 [![codecov](https://codecov.io/gh/technote-space/test-travis/branch/master/graph/badge.svg)](https://codecov.io/gh/technote-space/test-travis)
 [![CodeFactor](https://www.codefactor.io/repository/github/technote-space/test-travis/badge)](https://www.codefactor.io/repository/github/technote-space/test-travis)
