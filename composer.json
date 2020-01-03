@@ -21,8 +21,8 @@
   },
   "require": {
     "php": ">=5.6",
-    "wp-content-framework/core": "^0.0.59",
-    "wp-content-framework/update": "^0.0.8"
+    "wp-content-framework/core": "^0.0.60",
+    "wp-content-framework/update": "^0.0.9"
   },
   "scripts": {
     "setup": [
