@@ -4,7 +4,7 @@
  * Plugin URI: https://github.com/technote-space/test-travis
  * Description: Test plugin for Travis CI
  * Author: Technote
- * Version: 0.0.29
+ * Version: next-v0.0.30
  * Author URI: https://technote.space
  * Text Domain: test-travis
  * Domain Path: /languages/
